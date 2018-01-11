@@ -166,7 +166,7 @@ polylog_state_new(clt_state_t *s, size_t eta, size_t b, size_t wordsize,
 {
     const bool verbose = s->flags & CLT_FLAG_VERBOSE;
     polylog_state_t *state;
-    int count;
+    int count=0;
 
     if (log2(wordsize) != floor(log2(wordsize))) {
         fprintf(stderr, "error: wordsize must be a power of two\n");
@@ -380,7 +380,7 @@ cleanup:
 int
 polylog_elem_decrypt(clt_elem_t *x, const clt_state_t *s, size_t level)
 {
-    size_t nbits;
+    size_t nbits=0;
     mpz_t rop;
     mpz_init(rop);
     printf("DECRYPTION @ LEVEL %lu :: ", level);
